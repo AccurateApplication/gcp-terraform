@@ -2,3 +2,5 @@
 tmp/
 auth
 .terraform*
+terraform.tfstate*
+.envrc
