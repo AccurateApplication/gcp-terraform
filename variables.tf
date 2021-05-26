@@ -32,3 +32,13 @@ variable "vpc_subnet_pub" {
   type    = string
   default = "10.132.0.0/20"
 }
+
+variable "ssh_key" {
+  type    = string
+  default = "~/.ssh/id_rsa.pub"
+}
+
+# export TF_VAR_local_user=$USER # Probably a better way. But it works
+variable "local_user" {
+  type = string
+}

@@ -1,7 +1,13 @@
-data "google_client_openid_userinfo" "me" {
+resource "google_compute_project_metadata_item" "ssh-keys" {
+  key     = "ssh-keys"
+  value   = "${var.local_user}:${file(var.ssh_key)}"
+  project = var.project_id
+
+  # depends_on = [
+  #   "google_project_services.myproject",
+  # ]
 }
 
-resource "google_os_login_ssh_public_key" "cache" {
-  key  = file("~/.ssh/id_rsa.pub")
-  user = data.google_client_openid_userinfo.me.email
+output "ssh_key_added" {
+  value = google_compute_project_metadata_item.ssh-keys.value
 }
