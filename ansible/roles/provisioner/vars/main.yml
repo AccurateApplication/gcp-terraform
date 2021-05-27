@@ -1,0 +1,6 @@
+package_list:
+  - bash-completion
+  - chrony
+repo_list:
+  - epel-release
+  - elrepo-release
