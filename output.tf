@@ -1,5 +1,5 @@
 resource "local_file" "ansible_inventory" {
-  content = templatefile("./templates/inventory.tpl",
+  content = templatefile("./templates/inventory.tmpl",
     {
       ec2-ip   = google_compute_address.external.address,
       ec2-desc = google_compute_instance.bastion.description,
@@ -12,4 +12,14 @@ resource "local_file" "ansible_inventory" {
 
   )
   filename = "./ansible/inventory.yml"
+}
+
+resource "local_file" "ansible_config" {
+  content = templatefile("./templates/ansiblecfg.tmpl",
+    {
+      user = var.admin_user
+    }
+
+  )
+  filename = "./ansible/ansible.cfg"
 }

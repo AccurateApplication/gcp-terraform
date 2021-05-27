@@ -38,9 +38,11 @@ variable "ssh_key" {
   default = "~/.ssh/id_rsa.pub"
 }
 
-# export TF_VAR_local_user=$USER # Probably a better way. But it works
-variable "local_user" {
-  type = string
+variable "admin_user" {
+  description = "Will be used for ssh. has root privileges"
+  default     = "admin"
+  type        = string
+
 }
 
 variable "instance_count" {
