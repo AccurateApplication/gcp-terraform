@@ -1,0 +1,6 @@
+# ansible-galaxy install -r requirements.yml
+collections:
+  # Install a collection from Ansible Galaxy.
+  - name: ansible.posix
+    version: ==0.1.2
+    source: https://galaxy.ansible.com

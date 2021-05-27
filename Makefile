@@ -10,3 +10,7 @@ build: ## terraform apply
 .PHONY: destroy
 destroy: ## terraform destroy
 	terraform destroy -auto-approve
+
+.PHONY: req
+req: ##  req(uirements)
+	ansible-galaxy install -r ./ansible/collections/requirements.yml
