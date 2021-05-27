@@ -42,3 +42,8 @@ variable "ssh_key" {
 variable "local_user" {
   type = string
 }
+
+variable "instance_count" {
+  default = 2
+
+}
