@@ -1,3 +1,4 @@
 export TF_VAR_project_id="...."
 export TF_VAR_gcp_auth_file="./auth/project_credentials.json"
 export TF_VAR_gcp_local_user=$USER
+use_nix
