@@ -1,9 +1,4 @@
 ---
-- name: Make sure we have a 'wheel' group
-  group:
-    name: wheel
-    state: present
-
 - name: Install yum packages list
   yum:
     name: "{{ package_list }}"
@@ -20,24 +15,3 @@
     name: chronyd
     state: started
     enabled: yes
-
-- name: Allow 'wheel' group to have passwordless sudo
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%wheel'
-    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-
-- name: Add admin user
-  user:
-    name: admin
-    shell: /bin/bash
-    groups: wheel
-
-
-  # authorized_key:
-- name: Deploy SSH Key
-  ansible.posix.authorized_key:
-    user: admin
-    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-    state: present
