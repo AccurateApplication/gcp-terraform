@@ -30,8 +30,7 @@ resource "google_compute_instance" "server" {
   machine_type = "e2-micro"
   zone         = var.zone
   tags         = ["hard-working-server"]
-  #
-  # boot_disks = {}
+
   boot_disk {
     initialize_params {
       image = "centos-cloud/centos-8"
@@ -41,11 +40,7 @@ resource "google_compute_instance" "server" {
 
   network_interface {
     network = "default"
-    # network_ip = # Internal IP
 
-    access_config {
-      network_tier = "STANDARD"
-    }
   }
   count = var.instance_count
 }
