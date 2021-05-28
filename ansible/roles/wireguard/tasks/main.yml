@@ -1,0 +1,11 @@
+---
+
+- name: Install wireguard package
+  yum:
+    state: latest
+    name: wireguard-tools
+
+- name: Install kernelmod wireguard
+  yum:
+    state: latest
+    name: kmod-wireguard
