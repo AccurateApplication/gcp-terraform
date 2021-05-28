@@ -1,3 +1,5 @@
+export PROJECT_BASE_DIR="$(git rev-parse --show-toplevel)"
 export TF_VAR_project_id="...."
-export TF_VAR_gcp_auth_file="./auth/project_credentials.json"
+export TF_VAR_gcp_auth_file="$PROJECT_BASE_DIR/auth/project_credentials.json"
+export ANSIBLE_CONFIG="$PROJECT_BASE_DIR/ansible/ansible.cfg"
 use_nix
