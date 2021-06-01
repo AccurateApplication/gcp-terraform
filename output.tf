@@ -23,3 +23,7 @@ resource "local_file" "ansible_config" {
   )
   filename = "./ansible/ansible.cfg"
 }
+
+output "external_address" {
+  value = google_compute_address.external.address
+}

@@ -13,7 +13,8 @@ resource "google_compute_instance" "bastion" {
   }
 
   network_interface {
-    network = "default"
+    # network    = "default"
+    subnetwork = google_compute_subnetwork.custom-subnet.id
     # network_ip = # Internal IP
 
     access_config {
@@ -39,7 +40,8 @@ resource "google_compute_instance" "server" {
   }
 
   network_interface {
-    network = "default"
+    # network = "default"
+    subnetwork = google_compute_subnetwork.custom-subnet.id
 
   }
   count = var.instance_count

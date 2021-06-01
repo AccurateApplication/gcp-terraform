@@ -13,6 +13,13 @@ resource "google_compute_firewall" "default" {
     protocol = "udp"
     ports    = ["51820"]
   }
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+  allow {
+    protocol = "icmp"
+  }
   source_ranges = ["0.0.0.0/0"] # Default?
   source_tags   = ["wireguard"]
 
@@ -30,9 +37,4 @@ resource "google_compute_address" "external" {
   address_type = "EXTERNAL"
   region       = var.region
   network_tier = "STANDARD"
-}
-
-
-output "external_address" {
-  value = google_compute_address.external.address
 }
