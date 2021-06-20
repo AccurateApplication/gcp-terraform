@@ -7,7 +7,6 @@ then
     mkdir -p "$secretDir"
 fi
 
-# TODO place these in correct dir
 wg genkey > "$secretDir/privatekey"
 wg pubkey < "$secretDir"/privatekey > "$secretDir"/publickey
 
