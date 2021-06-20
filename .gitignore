@@ -4,3 +4,4 @@ auth
 .terraform*
 terraform.tfstate*
 .envrc
+secrets
